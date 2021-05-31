@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<?php
+if(isset($title))
+	echo "<title>$title</title>";
+		?>
 	</head>
 	<body>
-		<h1>abirvalarg.tk</h1>
-		<p>It works!</p>
-	</body>
-</html>
