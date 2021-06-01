@@ -1,4 +1,6 @@
 <?php
+require_once 'base.php';
+
 class Lang
 {
 	private static array $cache = [];
@@ -12,7 +14,7 @@ class Lang
 				$this->loaded = true;
 				$this->text = self::$cache[$langName]->text;
 			} else {
-				$fp = fopen("/srv/http/abirvalarg.tk/lang/$langName.tr", 'r');
+				$fp = fopen(BASE_DIR . "/lang/$langName.tr", 'r');
 				if($fp) {
 					$this->text = [];
 					while(($line = fgets($fp)) !== false) {
