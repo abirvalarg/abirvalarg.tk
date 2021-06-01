@@ -1,9 +1,9 @@
 <?php
-$title = 'abirvalarg\'s site';
+require_once 'lang.php';
+$__title = $__lang->translate('Index.title');
 include 'header.php';
 ?>
-<h1>It works!</h1>
-<p>now with PHP</p>
+	<p><?php tr('Index.text'); ?></p>
 <?php
 include 'footer.php';
 ?>
