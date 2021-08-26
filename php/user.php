@@ -5,8 +5,8 @@ class User {
 	private static ?User $_cur = NULL;
 	public ?int $uid = NULL;
 	public ?string $login = NULL;
-	public ?bool $isActive = NULL;
-	public ?bool $isAdmin = NULL;
+	public bool $isActive = false;
+	public bool $isAdmin = false;
 	public ?string $dispName = NULL;
 
 	function __construct(int|string $uid) {
@@ -14,13 +14,13 @@ class User {
 		switch(gettype($uid)) {
 		case 'integer':
 			$this->uid = $uid;
-			$stmt = $conn->prepare('SELECT login, isActive, isAdmin, dispName FROM user WHERE id=?');
+			$stmt = $conn->prepare('SELECT login, isActive=\'Y\', isAdmin=\'Y\', dispName FROM user WHERE id=?');
 			$stmt->bind_param('i', $uid);
 			break;
 
 		case 'string':
 			$this->login = $uid;
-			$stmt = $conn->prepare('SELECT id, isActive, isAdmin, dispName FROM user WHERE login=?');
+			$stmt = $conn->prepare('SELECT id, isActive=\'Y\', isAdmin=\'Y\', dispName FROM user WHERE login=?');
 			$stmt->bind_param('s', $uid);
 			break;
 		}
@@ -37,7 +37,13 @@ class User {
 	}
 
 	public function save() : Bool {
-		return false;
+		$stmt = db()->prepare('UPDATE user SET isActive=?, isAdmin=?, dispName=? WHERE id=?');
+		$isActive = ($this->isActive ? 'Y' : 'N');
+		$isAdmin = ($this->isAdmin ? 'Y' : 'N');
+		$stmt->bind_param('sssi', $isActive, $isAdmin, $this->dispName, $this->uid);
+		$res = $stmt->execute();
+		$stmt->close();
+		return $res;
 	}
 
 	public static function login(string $login, string $password) : ?User {
