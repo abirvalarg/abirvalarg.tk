@@ -1,5 +1,7 @@
 <?php
 require_once 'lang.php';
+require_once 'user.php';
+require_once 'csrf.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,6 +32,40 @@ if(isset($__title))
 								</ul>
 							</li>
 						</ul>
+						<ul class="navbar-nav d-flex">
+
+<?php
+session_start();
+if(isset($_SESSION['uid'])) {
+?>
+
+	<li class="nav-id"><?php echo User::get_name($_SESSION['uid']); ?> | <a href="/acc/logout.php?csrf=<?php echo csrf_token(); ?>"><?php tr('nav.logout'); ?></a></li>
+
+<?php
+} else {
+?>
+
+<li class="nav-item">
+	<a class="btn btn-outline-success" href="/acc/login"><?php tr('nav.login'); ?></a>
+</li>
+<li class="nav-item">
+	<a class="btn btn-warning" href="/acc/reg"><?php tr('nav.reg'); ?></a>
+</li>
+
+<?php } ?>
+
+						</ul>
 					</div>
 				</div>
 			</nav>
+			<div id="alerts" class="container-sm">
+<?php
+	if(isset($_SESSION['alerts'])) {
+		foreach($_SESSION['alerts'] as $al) {
+			$al->print_html();
+		}
+		unset($_SESSION['alerts']);
+	}
+?>
+			</div>
+			<main class="container">

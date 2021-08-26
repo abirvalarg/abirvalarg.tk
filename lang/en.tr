@@ -1,5 +1,12 @@
-# vim: set syntax=none
 nav.title=idk
 nav.lang=&#127760; language
+nav.login=Sign in
+nav.reg=Sign up
+
 Index.title=idk
 Index.text=a site for whatever i'll do, maybe
+
+Login.header=Sign in
+Login.login=Login
+Login.password=Password
+Login.submit=Sign in

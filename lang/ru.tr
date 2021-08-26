@@ -1,4 +1,12 @@
 nav.title=нечто
 nav.lang=&#127760; язык
+nav.login=Вход
+nav.reg=Регистрация
+
 Index.title=нечто
 Index.text=сайт для всего, что я захочу, может быть
+
+Login.header=Вход в аккаунт
+Login.login=Логин
+Login.password=Пароль
+Login.submit=Войти
