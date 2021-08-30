@@ -46,6 +46,15 @@ class User {
 		return $res;
 	}
 
+	public static function force_login(string $login) : ?User {
+		$user = new User($login);
+		if($user->uid !== NULL) {
+			$_SESSION['uid'] = $user->uid;
+			return $user;
+		} else
+			return NULL;
+	}
+
 	public static function login(string $login, string $password) : ?User {
 		$result = NULL;
 		$conn = db();
