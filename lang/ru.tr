@@ -2,11 +2,33 @@ nav.title=нечто
 nav.lang=&#127760; язык
 nav.login=Вход
 nav.reg=Регистрация
+nav.logout=Выйти
+
+alert.csrf=Неверный CSRF токен, попробуйте ещё раз
 
 Index.title=нечто
 Index.text=сайт для всего, что я захочу, может быть
 
+Logout.alert.success=Выход из аккаунта выполнен
+
+Login.title=Вход в аккаунт
 Login.header=Вход в аккаунт
 Login.login=Логин
 Login.password=Пароль
 Login.submit=Войти
+Login.alert.bad_login=Введите корректный логин
+Login.alert.bad_passwd=Введите корректный пароль
+Login.alert.wrong=Неверный логин или пароль
+Login.alert.success=Вход в аккаунт выполнен
+
+Register.title=Регистрация
+Register.header=Регистрация
+Register.login=Логин
+Register.password=Пароль
+Register.password2=Повтор пароля
+Register.submit=Зарегистрироваться
+Register.alert.bad_login=Логин должен состоять из английских букв, цифр, подчёркивания и тире
+Register.alert.bad_passwd=Пароль должен состоять из 5 или более символов
+Register.alert.diff_passwd=Пароли не совпадают
+Register.alert.user_exists=Пользователь с таким логином уже существует
+Register.alert.success=Регистрация выполнена

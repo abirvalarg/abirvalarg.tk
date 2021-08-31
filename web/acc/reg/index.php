@@ -40,7 +40,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$correct = true;
 	if(!is_string($_POST['csrf']) || !csrf_check($_POST['csrf'])) {
 		$correct = false;
-		new Alert($__lang->translate('Register.alert.csrf'), 'danger');
+		new Alert($__lang->translate('alert.csrf'), 'danger');
 	}
 
 	$login = trim($_POST['login']);

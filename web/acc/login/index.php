@@ -48,7 +48,7 @@ else {
 		$correct = false;
 	}
 	if(!isset($_POST['csrf']) || !csrf_check($_POST['csrf'])) {
-		new Alert($__lang->translate('Login.alert.csrf'), 'danger');
+		new Alert($__lang->translate('alert.csrf'), 'danger');
 		$correct = false;
 	}
 
@@ -57,7 +57,7 @@ else {
 			$correct = false;
 			new Alert($__lang->translate('Login.alert.wrong'), 'danger');
 		} else {
-			new Alert($__lang->translate('Login.alert.success', 'success'));
+			new Alert($__lang->translate('Login.alert.success'), 'success');
 			redirect(isset($_GET['next']) ? $_GET['next'] : '/');
 		}
 	}

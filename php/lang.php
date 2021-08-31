@@ -50,7 +50,7 @@ class Lang
 		global $__lang;
 		$l = new Lang($code);
 		if($l->is_loaded()) {
-			setcookie('lang', $code);
+			setcookie('lang', $code, 0, '/');
 			$__lang = $l;
 			return true;
 		} else

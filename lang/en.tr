@@ -2,11 +2,33 @@ nav.title=idk
 nav.lang=&#127760; language
 nav.login=Sign in
 nav.reg=Sign up
+nav.logout=Log out
+
+alert.csrf=Wrong CSRF token, try again
+
+Logout.alert.success=Successfully logged out
 
 Index.title=idk
 Index.text=a site for whatever i'll do, maybe
 
+Login.title=Sign in
 Login.header=Sign in
 Login.login=Login
 Login.password=Password
 Login.submit=Sign in
+Login.alert.bad_login=Enter a valid login
+Login.alert.bad_passwd=Enter a valid password
+Login.alert.wrong=Wrong login or password
+Login.alert.success=Successfully logged in
+
+Register.title=Signing up
+Register.header=Signing up
+Register.login=Login
+Register.password=Password
+Register.password2=Repeat password
+Register.submit=Sign up
+Register.alert.bad_login=Login must contain only letters, numbers, underscores or hyphens
+Register.alert.bad_passwd=Password must be at least 5 characters long
+Register.alert.diff_passwd=Passwords must be same
+Register.alert.user_exists=User with this login already exists
+Register.alert.success=Successfully signed up
